@@ -65,12 +65,17 @@ function App() {
       };
     });
   }
-
+  const ctxValue = {
+    items: shoppingCart.items,
+    addItemToCart: handleAddItemToCart,
+    updateItemQuantity: handleUpdateCartItemQuantity,
+  }
+  console.log('in app');
+  console.log(ctxValue)
   return (
-    <CartContext.Provider value={{items:[]}}>
+    <CartContext.Provider value={ctxValue}>
       <Header
-        cart={shoppingCart}
-        onUpdateCartItemQuantity={handleUpdateCartItemQuantity}
+        
       />
       <Shop>
         {DUMMY_PRODUCTS.map((product) => (
